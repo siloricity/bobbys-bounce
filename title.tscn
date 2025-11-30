@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbrs51ti3qr22"]
+
+[ext_resource type="Script" uid="uid://2jx6xtdw1nrw" path="res://title.gd" id="1_kpexm"]
+[ext_resource type="FontFile" uid="uid://17pjedcjyvx2" path="res://assets/Exo-Regular.ttf" id="1_y7k74"]
+[ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="2_oyqm6"]
+[ext_resource type="StyleBox" uid="uid://bb1nr4hls440g" path="res://assets/blue_theme.tres" id="4_3xoar"]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_kpexm")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.1
+theme_override_fonts/normal_font = ExtResource("1_y7k74")
+theme_override_font_sizes/normal_font_size = 111
+bbcode_enabled = true
+text = "[center]bobby's
+bounce"
+scroll_active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer"]
+position = Vector2(640, 376)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oyqm6")
+
+[node name="Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_y7k74")
+theme_override_font_sizes/font_size = 101
+theme_override_styles/normal = ExtResource("4_3xoar")
+theme_override_styles/normal_mirrored = ExtResource("4_3xoar")
+theme_override_styles/pressed = ExtResource("4_3xoar")
+theme_override_styles/pressed_mirrored = ExtResource("4_3xoar")
+theme_override_styles/hover = ExtResource("4_3xoar")
+theme_override_styles/hover_mirrored = ExtResource("4_3xoar")
+theme_override_styles/hover_pressed = ExtResource("4_3xoar")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_3xoar")
+theme_override_styles/disabled = ExtResource("4_3xoar")
+theme_override_styles/disabled_mirrored = ExtResource("4_3xoar")
+theme_override_styles/focus = ExtResource("4_3xoar")
+text = "bounce"
+
+[connection signal="pressed" from="BoxContainer/Button" to="." method="_on_button_pressed"]

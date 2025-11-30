@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://bptoycg1f0wjw"]
+
+[ext_resource type="Script" uid="uid://dstmpvomb1x4d" path="res://bobby.gd" id="1_gvm5p"]
+[ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="1_vcwjl"]
+[ext_resource type="Texture2D" uid="uid://cepsdmxpysgkd" path="res://assets/stars.png" id="3_ct5nq"]
+[ext_resource type="AudioStream" uid="uid://c8wsrcu06j6wx" path="res://assets/die.ogg" id="4_hlrda"]
+[ext_resource type="AudioStream" uid="uid://b51syta3tqn7y" path="res://assets/bump.wav" id="5_7bcfl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gvm5p"]
+friction = 0.05
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcwjl"]
+radius = 15.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hlrda"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 105.89
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 152.46999
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.81300014
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 16.479998
+radial_accel_max = 52.379997
+damping_min = 13.529
+damping_max = 13.529
+
+[node name="bobby" type="RigidBody2D"]
+collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_gvm5p")
+freeze = true
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_gvm5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vcwjl")
+
+[node name="star" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.1999998, 1.1999998)
+texture = ExtResource("3_ct5nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_vcwjl")
+debug_color = Color(1, 1, 1, 0.14509805)
+
+[node name="DeathFX" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 24
+texture = ExtResource("3_ct5nq")
+process_material = SubResource("ParticleProcessMaterial_hlrda")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hlrda")
+
+[node name="BumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7bcfl")
+volume_db = -6.679
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
