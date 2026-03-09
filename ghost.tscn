@@ -14,19 +14,21 @@ radius = 15.0
 modulate = Color(1, 1, 1, 0.42352942)
 collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_v5pp4")
-freeze = true
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_6attn")
 sling_multiplier = 3.0
+max_sling = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1273288737]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_vcwjl")
-debug_color = Color(1, 1, 1, 0.14509805)
+debug_color = Color(1, 1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1271427952]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_v5pp4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

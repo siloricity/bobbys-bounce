@@ -88,7 +88,4 @@ stream = ExtResource("4_hlrda")
 stream = ExtResource("5_7bcfl")
 volume_db = -6.679
 
-[node name="Timer" type="Timer" parent="." unique_id=1677166646]
-wait_time = 0.5
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
