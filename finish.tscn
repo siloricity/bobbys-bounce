@@ -8,8 +8,8 @@ offsets = PackedFloat32Array(0.0625, 0.24305555)
 colors = PackedColorArray(1, 1, 1, 1, 0.3069352, 0.029037476, 0.67578125, 1)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xfp72"]
-width = 1280
-height = 720
+width = 1920
+height = 1080
 noise = ExtResource("2_bt3yw")
 color_ramp = SubResource("Gradient_se5xy")
 
@@ -25,6 +25,7 @@ polygon = PackedVector2Array(67, 92, 156, 75, 183, 0, 0, 0)
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1296492631]
 color = Color(1, 1, 1, 0.6509804)
 texture = SubResource("NoiseTexture2D_xfp72")
+texture_scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(66, 92, 139, 119, 201, -8, -8, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=1905738503]

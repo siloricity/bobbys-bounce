@@ -5,7 +5,7 @@ func _ready():
 	# intro sequence animation
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($welcome,"modulate:a",1,1.2)
-	tween.parallel().tween_property($welcome,"position:y",100,1.2)
+	tween.parallel().tween_property($welcome,"position:y",370,1.2)
 	progress = 1
 func _input(_InputEvent):
 	if Input.is_action_just_pressed("click"):
@@ -21,12 +21,8 @@ func _input(_InputEvent):
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
 func its_okay():
-	$welcome.text = "it's okay to fail"
-	$welcome.position.y +=100
 	$retrybutton.disabled = false
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property($welcome,"modulate:a",1,1.2)
-	tween.parallel().tween_property($welcome,"position:y",180,1.2)
 	tween.parallel().tween_property($retrybutton,"modulate:a",1,1.2)
 # spawn ghosts
 func _on_timer_timeout() -> void:
@@ -42,13 +38,13 @@ func _on_finish_body_entered(body: Node2D) -> void:
 		tween.tween_property($complete,"position:y",330,1)
 		tween.parallel().tween_property($retrybutton,"modulate:a",1,1.2)
 		var dict = saveman.load_game().duplicate()
-		if dict["level02"] != 1:
-			dict["level02"] = 1
+		if dict["level03"] != 1:
+			dict["level03"] = 1
 			dict["levels_completed"] += 1
 			saveman.save_game(dict)
 # next level
 func _on_comp_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/level03.tscn")
+	get_tree().change_scene_to_file("res://title.tscn")
 # retry button
 func _on_retrybutton_pressed() -> void:
 	get_tree().reload_current_scene()

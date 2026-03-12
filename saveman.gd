@@ -4,7 +4,8 @@ const save_file_name: String = "user://save_game.json" # You can change this to 
 const default_dictionary: Dictionary[String,int] = {
 	"levels_completed": 0,
 	"level01" : 0,
-	"level02" : 0
+	"level02" : 0,
+	"level03" : 0
 	}
 
 ## Stores data to a save file to be loaded from later
