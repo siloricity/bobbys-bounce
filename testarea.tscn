@@ -31,21 +31,21 @@ script = ExtResource("1_0cy10")
 position = Vector2(566, 331)
 contact_monitor = true
 max_contacts_reported = 10
-sling_multiplier = 3.0
+sling_multiplier = 3.5
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1021848289]
+[node name="WorldBorder1" type="StaticBody2D" parent="." unique_id=1021848289]
 position = Vector2(439, 720)
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=694828546]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder1" unique_id=694828546]
 shape = SubResource("WorldBoundaryShape2D_5v1cx")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=585776975]
+[node name="WorldBorder2" type="StaticBody2D" parent="." unique_id=585776975]
 position = Vector2(389, 0)
 rotation = -3.1415927
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1983204052]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder2" unique_id=1983204052]
 shape = SubResource("WorldBoundaryShape2D_5v1cx")
 
 [node name="TileBlocks" type="TileMapLayer" parent="." unique_id=1810241861]

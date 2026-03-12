@@ -12,7 +12,7 @@ func _ready():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate:a",0, 1.2)
 	tween.tween_callback(func(): queue_free())
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate:a",0, 0.4)
 	tween.tween_callback(func(): queue_free())

@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://xp1mf6m0rwgc"]
+
+[ext_resource type="Script" uid="uid://b0n2w7i8exlb3" path="res://levels/level_01.gd" id="1_vsh7h"]
+[ext_resource type="PackedScene" uid="uid://bptoycg1f0wjw" path="res://bobby.tscn" id="2_ucm2n"]
+[ext_resource type="Texture2D" uid="uid://dy1esumpg467t" path="res://assets/tileset.png" id="3_ogl2o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cy10"]
+texture = ExtResource("3_ogl2o")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 30, 29, 29, 50, 50, -50, 50)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -31, 36, 50, -40, 50)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, 50, -50, 50)
+
+[sub_resource type="TileSet" id="TileSet_t65pu"]
+tile_size = Vector2i(100, 100)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/0 = SubResource("TileSetAtlasSource_0cy10")
+
+[node name="level01" type="Node2D" unique_id=2003739862]
+script = ExtResource("1_vsh7h")
+
+[node name="bobby" parent="." unique_id=263530290 instance=ExtResource("2_ucm2n")]
+position = Vector2(640, 360)
+contact_monitor = true
+max_contacts_reported = 10
+sling_multiplier = 3.5
+
+[node name="TileBlocks" type="TileMapLayer" parent="." unique_id=1810241861]
+scale = Vector2(0.4, 0.4)
+tile_map_data = PackedByteArray("AAAAABEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAAEABEAAAAAAAAAAAAFABEAAAAAAAAAAAAGABEAAAAAAAAAAAAHABEAAAAAAAAAAAAIABEAAAAAAAAAAAAJABEAAAAAAAAAAAAKABEAAAAAAAAAAAALABEAAAAAAAAAAAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAVABEAAAAAAAAAAAAWABEAAAAAAAAAAAAXABEAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAfABAAAAAAAAAAAAAfAA8AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA0AAAAAAAAAAAAfAAwAAAAAAAAAAAAfAAsAAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAQAAAAAAAAAAAAfAAMAAAAAAAAAAAAfAAIAAAAAAAAAAAAfAAEAAAAAAAAAAAAfAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_t65pu")
+
+[node name="Timer" type="Timer" parent="." unique_id=988185058]
+wait_time = 0.5
+
+[node name="welcome" type="RichTextLabel" parent="." unique_id=681881303]
+modulate = Color(1, 1, 1, 0)
+offset_left = 95.0
+offset_top = 175.0
+offset_right = 576.0
+offset_bottom = 359.0
+theme_override_font_sizes/normal_font_size = 59
+text = "welcome to bobby's bounce"
+scroll_active = false
+
+[connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

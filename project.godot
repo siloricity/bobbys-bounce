@@ -32,6 +32,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/handheld/orientation=6
 
+[gui]
+
+theme/custom_font="uid://17pjedcjyvx2"
+
 [input]
 
 click={
@@ -45,6 +49,7 @@ click={
 2d_physics/layer_1="tile"
 2d_physics/layer_2="bobby"
 2d_physics/layer_3="ghost"
+2d_physics/layer_4="finish"
 
 [rendering]
 

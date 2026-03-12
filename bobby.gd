@@ -2,7 +2,6 @@ extends RigidBody2D
 @export var sling_multiplier:float
 @export var max_sling:int
 @export var ghost: PackedScene
-@export var ghost_length: float
 var released := false
 var dead := false
 # rotate the sling
@@ -35,11 +34,11 @@ func _process(_delta):
 			self.gravity_scale = 1
 # bounce or die
 func _on_body_entered(body: Node) -> void:
-	if body.name != "TileHazards":
-		# I've heard it said that random pitch sounds better
-		bump_sound(randf_range(0.5,2))
-	else:
-		EXPLODES()
+	match body.name:
+		"TileBlocks":
+			bump_sound(randf_range(0.5,2))
+		"TileHazards":
+			EXPLODES()
 # collide sound
 func bump_sound(pitch):
 	$BumpSound.pitch_scale = pitch

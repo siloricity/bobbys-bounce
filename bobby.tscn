@@ -40,6 +40,7 @@ damping_max = 13.529
 
 [node name="bobby" type="RigidBody2D" unique_id=258334163]
 collision_layer = 2
+collision_mask = 9
 physics_material_override = SubResource("PhysicsMaterial_gvm5p")
 freeze = true
 linear_damp_mode = 1
@@ -48,7 +49,6 @@ script = ExtResource("1_gvm5p")
 sling_multiplier = 1.0
 max_sling = 500
 ghost = ExtResource("2_bsmyw")
-ghost_length = 1.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1121584084]
 points = PackedVector2Array(0, 0, 0, 0)
