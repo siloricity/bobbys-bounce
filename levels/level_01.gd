@@ -29,8 +29,7 @@ func _input(_InputEvent):
 				tween.tween_property($finish,"position:y",528,1)
 	# logic to enable timer for ghost
 	if Input.is_action_just_pressed("click"):
-		if $bobby.dead == true: pass
-		else:
+		if $bobby.dead != true:
 			$Timer.start()
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
@@ -49,6 +48,11 @@ func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property($complete,"position:y",330,1)
+		var dict = saveman.load_game().duplicate()
+		if dict["level01"] != 1:
+			dict["level01"] = 1
+			dict["levels_completed"] += 1
+			saveman.save_game(dict)
 # next level
 func _on_comp_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level02.tscn")

@@ -19,9 +19,7 @@ func _input(_InputEvent):
 		if $bobby.linear_velocity != Vector2.ZERO:
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):
-		
 		$Timer.stop()
-		
 func its_okay():
 	$welcome.text = "it's okay to fail"
 	$welcome.position.y +=100
@@ -39,8 +37,15 @@ func _on_timer_timeout() -> void:
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body == $bobby:
 		$bobby.dead = true
+		$retrybutton.disabled = false
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		tween.tween_property($complete,"position:y",330,1)
+		tween.parallel().tween_property($retrybutton,"modulate:a",1,1.2)
+		var dict = saveman.load_game().duplicate()
+		if dict["level02"] != 1:
+			dict["level02"] = 1
+			dict["levels_completed"] += 1
+			saveman.save_game(dict)
 # next level
 func _on_comp_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://title.tscn")
