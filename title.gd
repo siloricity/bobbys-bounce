@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	var dict = saveman.load_game()
-	$RichTextLabel.text = str(int(dict["levels_completed"]))+" / 20 levels completed"
+	$BoxContainer/HBoxContainer/LevelCount.text = str(int(dict["levels_completed"]))+" / 20 levels completed"
 	$AnimationPlayer.play("bounce_title")
 	$AnimationPlayer2.play("wheel_title")
 func _on_button_pressed() -> void:

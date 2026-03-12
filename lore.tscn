@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ckmfq25kdg3wb"]
+
+[ext_resource type="StyleBox" uid="uid://dl3qqsolfqsg2" path="res://assets/red_theme.tres" id="1_pp6gk"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1449224860]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=637046476]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=837725495]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("1_pp6gk")
+theme_override_styles/normal_mirrored = ExtResource("1_pp6gk")
+theme_override_styles/pressed = ExtResource("1_pp6gk")
+theme_override_styles/pressed_mirrored = ExtResource("1_pp6gk")
+theme_override_styles/hover = ExtResource("1_pp6gk")
+theme_override_styles/hover_mirrored = ExtResource("1_pp6gk")
+theme_override_styles/hover_pressed = ExtResource("1_pp6gk")
+theme_override_styles/hover_pressed_mirrored = ExtResource("1_pp6gk")
+theme_override_styles/disabled = ExtResource("1_pp6gk")
+theme_override_styles/disabled_mirrored = ExtResource("1_pp6gk")
+theme_override_styles/focus = ExtResource("1_pp6gk")
+text = "back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=1734845319]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.85506296, 0.84832764, 0.8828125, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "Lore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=365187541]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=22735387]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBoxContainer2" unique_id=1085699653]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer2" unique_id=749476728]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.96125793, 0.97158766, 0.97265625, 1)
+theme_override_font_sizes/normal_font_size = 37
+text = "this is some text
+here is the lore
+1 - bobby is actually [REDACTED]
+2 - bobby was [REDACTED]
+
+
+
+
+
+no lore for you! lmaoo get fucked"
+
+[node name="Control2" type="Control" parent="HBoxContainer2" unique_id=716875892]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2

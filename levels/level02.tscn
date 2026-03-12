@@ -126,12 +126,16 @@ one_shot = true
 z_index = 2
 position = Vector2(640, 1080)
 
+[node name="failsafe" type="Timer" parent="." unique_id=1697904108]
+wait_time = 8.0
+
 [connection signal="body_entered" from="bobby" to="." method="_on_bobby_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="retrybutton" to="." method="_on_retrybutton_pressed"]
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="complete/Button" to="." method="_on_comp_button_pressed"]
+[connection signal="timeout" from="failsafe" to="." method="its_okay"]
 
 [editable path="bobby"]
 [editable path="finish"]

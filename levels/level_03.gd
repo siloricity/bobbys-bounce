@@ -20,6 +20,7 @@ func _input(_InputEvent):
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
+		$failsafe.start()
 func its_okay():
 	$retrybutton.disabled = false
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

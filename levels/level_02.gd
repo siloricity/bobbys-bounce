@@ -20,6 +20,7 @@ func _input(_InputEvent):
 			$bobby.dead = true
 	if Input.is_action_just_released("click"):
 		$Timer.stop()
+		$failsafe.start()
 func its_okay():
 	$welcome.text = "it's okay to fail"
 	$welcome.position.y +=100

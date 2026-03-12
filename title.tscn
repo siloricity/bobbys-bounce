@@ -14,14 +14,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BoxContainer/HBoxContainer2/ColorRect/Sprite2D:position")
+tracks/0/path = NodePath("BoxContainer/HBoxContainer2/HBoxContainer/Control/Sprite2D:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(203.00002, -15)]
+"values": [-15.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -42,14 +42,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BoxContainer/HBoxContainer2/ColorRect/Sprite2D:position")
+tracks/0/path = NodePath("BoxContainer/HBoxContainer2/HBoxContainer/Control/Sprite2D:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
-"values": [Vector2(203.00002, -15), Vector2(203, 235), Vector2(203, -15)]
+"values": [-15.0, 235.0, -15.0]
 }
 
 [sub_resource type="Animation" id="Animation_0824t"]
@@ -102,7 +102,7 @@ size_flags_stretch_ratio = 0.29
 [node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer/HBoxContainer" unique_id=1736804074]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.11
+size_flags_stretch_ratio = 5.11
 theme_override_fonts/normal_font = ExtResource("1_y7k74")
 theme_override_font_sizes/normal_font_size = 87
 bbcode_enabled = true
@@ -110,11 +110,14 @@ text = "[center]bobby's bounce"
 scroll_active = false
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="BoxContainer/HBoxContainer" unique_id=60991913]
+[node name="LevelCount" type="RichTextLabel" parent="BoxContainer/HBoxContainer" unique_id=831832751]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.89
-color = Color(1, 1, 1, 0)
+theme_override_font_sizes/normal_font_size = 47
+text = "0 / 20 Levels Completed"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer" unique_id=117445554]
 layout_mode = 2
@@ -209,33 +212,35 @@ theme_override_styles/disabled_mirrored = ExtResource("4_mom7w")
 theme_override_styles/focus = ExtResource("4_mom7w")
 text = "quit"
 
-[node name="ColorRect" type="ColorRect" parent="BoxContainer/HBoxContainer2" unique_id=1208718953]
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/HBoxContainer2" unique_id=1699798700]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.79
-color = Color(1, 1, 1, 0)
+size_flags_stretch_ratio = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="BoxContainer/HBoxContainer2/ColorRect" unique_id=1866298685]
-position = Vector2(203.00002, -15)
+[node name="Control2" type="Control" parent="BoxContainer/HBoxContainer2/HBoxContainer" unique_id=894622190]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="BoxContainer/HBoxContainer2/HBoxContainer" unique_id=455005219]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer/HBoxContainer2/HBoxContainer/Control" unique_id=1866298685]
+position = Vector2(0, -15)
 scale = Vector2(0.70468473, 0.70468473)
 texture = ExtResource("2_oyqm6")
 centered = false
+
+[node name="Control3" type="Control" parent="BoxContainer/HBoxContainer2/HBoxContainer" unique_id=2072482084]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.85
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=897756066]
 libraries/ = SubResource("AnimationLibrary_0824t")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1858915515]
 libraries/ = SubResource("AnimationLibrary_0824t")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1878331751]
-offset_left = 761.0
-offset_top = 52.0
-offset_right = 1343.0
-offset_bottom = 127.0
-theme_override_font_sizes/normal_font_size = 45
-text = "0/2 levels"
-fit_content = true
-scroll_active = false
 
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_bounce" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer2/VBoxContainer/butt_lore" to="." method="_on_butt_lore_pressed"]
