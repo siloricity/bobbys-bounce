@@ -146,7 +146,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamTrigger" unique_id=746970907]
-position = Vector2(989.5, 480)
+position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_6r1wt")
 debug_color = Color(0.828125, 1, 0, 0.41960785)
 

@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b51syta3tqn7y" path="res://assets/bump.wav" id="5_7bcfl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gvm5p"]
-friction = 0.05
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="Curve" id="Curve_bsmyw"]
@@ -61,10 +61,6 @@ end_cap_mode = 2
 
 [node name="LineGuidance" type="Node2D" parent="." unique_id=678805695]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=566778922]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_vcwjl")
-
 [node name="star" type="Sprite2D" parent="." unique_id=1461521296]
 visible = false
 scale = Vector2(1.1999998, 1.1999998)
@@ -87,5 +83,9 @@ stream = ExtResource("4_hlrda")
 [node name="BumpSound" type="AudioStreamPlayer" parent="." unique_id=409295309]
 stream = ExtResource("5_7bcfl")
 volume_db = -6.679
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=566778922]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_vcwjl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
