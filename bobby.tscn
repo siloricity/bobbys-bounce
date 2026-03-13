@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://bptoycg1f0wjw"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://dxa8kjwmc4btk" path="res://bobbyphysics.tres" id="1_0xubk"]
 [ext_resource type="Script" uid="uid://dstmpvomb1x4d" path="res://bobby.gd" id="1_gvm5p"]
 [ext_resource type="Texture2D" uid="uid://dosjvlheqmwrs" path="res://assets/bobby.svg" id="1_vcwjl"]
 [ext_resource type="PackedScene" uid="uid://d1vcqjqs2grh1" path="res://ghost.tscn" id="2_bsmyw"]
 [ext_resource type="Texture2D" uid="uid://cepsdmxpysgkd" path="res://assets/stars.png" id="3_ct5nq"]
 [ext_resource type="AudioStream" uid="uid://c8wsrcu06j6wx" path="res://assets/die.ogg" id="4_hlrda"]
 [ext_resource type="AudioStream" uid="uid://b51syta3tqn7y" path="res://assets/bump.wav" id="5_7bcfl"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gvm5p"]
-friction = 0.0
-bounce = 1.0
 
 [sub_resource type="Curve" id="Curve_bsmyw"]
 _data = [Vector2(0, 1), 0.61111116, -1.1018484, 1, 0, Vector2(1, 0.14814815), -0.8518518, 0.0, 1, 0]
@@ -41,8 +38,7 @@ damping_max = 13.529
 [node name="bobby" type="RigidBody2D" unique_id=258334163]
 collision_layer = 2
 collision_mask = 9
-mass = 2.0
-physics_material_override = SubResource("PhysicsMaterial_gvm5p")
+physics_material_override = ExtResource("1_0xubk")
 freeze = true
 linear_damp_mode = 1
 angular_damp_mode = 1
