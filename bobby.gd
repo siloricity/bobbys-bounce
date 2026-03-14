@@ -50,14 +50,27 @@ func _physics_process(delta: float) -> void:
 	if collision_info:
 		if collision_info.get_collider().has_method("method"):
 			self.physics_material_override.bounce = 0
+			roll_sound(true)
 		else:
 			self.physics_material_override.bounce = 0.99
+			roll_sound(false)
 		angular_velocity = -linear_velocity.dot(collision_info.get_normal().orthogonal()) / ball_radius * friction
-
+	else: roll_sound(false)
 ## collide sound
 func bump_sound(pitch):
 	$BumpSound.pitch_scale = pitch
 	$BumpSound.play()
+## roll sound
+func roll_sound(play: bool):
+	if play == true:
+		$RollTimer.stop()
+		if not $RollSound.playing:
+			$RollSound.play()
+	if play == false:
+		if $RollTimer.is_stopped():
+			$RollTimer.start()
+func _on_roll_timer_timeout() -> void:
+	$RollSound.stop()
 ## death sfx
 func EXPLODES():
 	self.sleeping = true

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cepsdmxpysgkd" path="res://assets/stars.png" id="3_ct5nq"]
 [ext_resource type="AudioStream" uid="uid://c8wsrcu06j6wx" path="res://assets/die.ogg" id="4_hlrda"]
 [ext_resource type="AudioStream" uid="uid://b51syta3tqn7y" path="res://assets/bump.wav" id="5_7bcfl"]
+[ext_resource type="AudioStream" uid="uid://btr4spw22lctn" path="res://assets/1096.wav" id="8_bdkr4"]
 
 [sub_resource type="Curve" id="Curve_bsmyw"]
 _data = [Vector2(0, 1), 0.61111116, -1.1018484, 1, 0, Vector2(1, 0.14814815), -0.8518518, 0.0, 1, 0]
@@ -74,10 +75,10 @@ amount = 24
 texture = ExtResource("3_ct5nq")
 process_material = SubResource("ParticleProcessMaterial_hlrda")
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=498945168]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1306934323]
 stream = ExtResource("4_hlrda")
 
-[node name="BumpSound" type="AudioStreamPlayer" parent="." unique_id=409295309]
+[node name="BumpSound" type="AudioStreamPlayer2D" parent="." unique_id=1886717805]
 stream = ExtResource("5_7bcfl")
 volume_db = -6.679
 
@@ -85,4 +86,11 @@ volume_db = -6.679
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_vcwjl")
 
+[node name="RollSound" type="AudioStreamPlayer2D" parent="." unique_id=1054938054]
+stream = ExtResource("8_bdkr4")
+
+[node name="RollTimer" type="Timer" parent="." unique_id=1508687667]
+wait_time = 0.1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="RollTimer" to="." method="_on_roll_timer_timeout"]
