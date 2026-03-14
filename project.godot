@@ -25,6 +25,7 @@ config/icon="uid://drc8mw1a5hoe1"
 
 saveman="*uid://ygp8gydrh4rh"
 global="*uid://bbdnlnn7whhxu"
+DiscordRPCLoader="*uid://dmay6ayii8mqx"
 
 [display]
 
@@ -32,6 +33,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/handheld/orientation=6
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [gui]
 

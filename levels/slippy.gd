@@ -4,5 +4,5 @@ func _ready():
 	$Area2D/Polygon2D.polygon = poly
 	$CollisionPolygon2D.polygon = poly
 	$Area2D/Line2D.points = poly
-func method():
-	pass
+## Exists solely to identify slippy walls
+func method(): pass
