@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5gyijwt4l06v"]
 
-[ext_resource type="Script" uid="uid://bv8k7as40dbha" path="res://levels/slippy.gd" id="1_hnhxo"]
+[ext_resource type="Script" uid="uid://bv8k7as40dbha" path="res://slippy.gd" id="1_hnhxo"]
 
 [sub_resource type="Gradient" id="Gradient_hnhxo"]
 offsets = PackedFloat32Array(0.49305555, 0.9097222)
@@ -37,6 +37,3 @@ width = 3.0
 default_color = Color(0.93333334, 0.7529412, 0.9254902, 0.6862745)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=865100964]
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
