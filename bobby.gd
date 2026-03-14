@@ -18,7 +18,7 @@ func _process(_delta):
 			$star.show()
 			$Line2D.show()
 			@warning_ignore("integer_division")
-			$LineGuidance.position=(mouse-self.global_position).limit_length(max_sling/2)
+			$LineGuidance.position=(mouse-self.global_position).limit_length(max_sling)
 			self.look_at(mouse)
 			self.rotation_degrees -= 90
 			self.linear_velocity = Vector2.ZERO
@@ -32,7 +32,7 @@ func _process(_delta):
 			tween.tween_property($LineGuidance,"position",Vector2.ZERO,0.1)
 			self.freeze = false
 			self.gravity_scale = 0
-			self.linear_velocity = vel.limit_length(max_sling)
+			self.linear_velocity = vel.limit_length(max_sling*2)
 			self.gravity_scale = 1
 # bounce or die
 func _on_body_entered(body: Node) -> void:

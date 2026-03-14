@@ -45,7 +45,7 @@ linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_gvm5p")
 sling_multiplier = 1.0
-max_sling = 500
+max_sling = 250
 ghost = ExtResource("2_bsmyw")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1121584084]
