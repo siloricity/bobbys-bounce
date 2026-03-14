@@ -17,6 +17,7 @@ func _process(_delta):
 		else:
 			$star.show()
 			$Line2D.show()
+			@warning_ignore("integer_division")
 			$LineGuidance.position=(mouse-self.global_position).limit_length(max_sling/2)
 			self.look_at(mouse)
 			self.rotation_degrees -= 90
