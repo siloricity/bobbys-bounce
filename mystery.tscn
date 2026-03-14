@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://801erm0yoddg"]
+
+[ext_resource type="AudioStream" uid="uid://dhelu0djyi5a1" path="res://assets/quack.ogg" id="1_lbgxc"]
+[ext_resource type="Script" uid="uid://deg4uuh1oqds8" path="res://mystery.gd" id="2_4xcll"]
+
+[node name="Mystery" type="AudioStreamPlayer" unique_id=454287370]
+stream = ExtResource("1_lbgxc")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("2_4xcll")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
